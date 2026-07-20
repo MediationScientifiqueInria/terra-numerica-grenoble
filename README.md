@@ -152,3 +152,11 @@ Pour publier le site :
 4. Relancer le workflow `Deploy MkDocs site` si besoin.
 
 Le workflow installe les dépendances de `requirements.txt`, build le site avec MkDocs Material, puis publie le dossier `site`.
+
+Important : ne pas choisir `Deploy from a branch` avec le dossier `docs/`. Dans ce mode, GitHub sert les fichiers Markdown sources sans passer par MkDocs, donc le thème, le CSS custom et le JavaScript du catalogue ne sont pas chargés.
+
+Si la page publiée ressemble à du HTML brut ou si les activités restent bloquées sur `Chargement des activités...`, vérifier :
+
+- `Settings > Pages > Source` doit être `GitHub Actions`.
+- L’onglet `Actions` doit afficher un workflow `Deploy MkDocs site` réussi.
+- La page publiée doit contenir les fichiers générés `assets/stylesheets/main...css`, `assets/stylesheets/catalog.css` et `javascripts/catalogue.js`.

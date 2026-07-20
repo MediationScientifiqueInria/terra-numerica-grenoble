@@ -15,8 +15,6 @@ hide:
   data-types-url="https://portail.terra-numerica.org/prpact/api/enum/types"
   data-subjects-url="https://portail.terra-numerica.org/prpact/api/enum/subjects"
   data-levels-url="https://portail.terra-numerica.org/prpact/api/enum/levels"
-  data-events-base-url="http://127.0.0.1:8002"
-  data-events-public-base-url=""
   data-activity-detail-url="activite/"
 >
   <section class="catalog-toolbar" aria-label="Filtres du catalogue">

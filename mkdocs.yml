@@ -1,5 +1,6 @@
 site_name: Catalogue TNG
 site_description: Catalogue de ressources Terra Numerica Grenoble.
+site_url: https://mediationscientifiqueinria.github.io/terra_numerica_grenoble/
 
 theme:
   name: material

@@ -1,0 +1,31 @@
+site_name: Catalogue TNG
+site_description: Catalogue de ressources Terra Numerica Grenoble.
+
+theme:
+  name: material
+  language: fr
+  palette:
+    primary: teal
+    accent: amber
+  features:
+    - navigation.sections
+
+extra_css:
+  - assets/stylesheets/catalog.css
+
+extra_javascript:
+  - javascripts/catalogue.js
+
+nav:
+  - Catalogue: index.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - search:
+      lang: fr

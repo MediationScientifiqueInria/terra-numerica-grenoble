@@ -4,7 +4,11 @@ hide:
   - toc
 ---
 
-# Catalogue
+<header class="tng-site-header">
+  <a class="tng-site-header__brand" href="./" aria-label="Retour au catalogue">
+    Terra Numerica Grenoble
+  </a>
+</header>
 
 <div
   class="catalog-app"

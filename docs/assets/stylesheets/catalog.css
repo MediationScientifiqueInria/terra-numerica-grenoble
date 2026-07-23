@@ -12,6 +12,81 @@
   --tng-danger: #c75f2a;
 }
 
+.md-header,
+.md-tabs,
+.md-sidebar {
+  display: none;
+}
+
+.md-main,
+.md-main__inner {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.md-grid {
+  max-width: none;
+}
+
+.md-content {
+  max-width: none;
+}
+
+.md-main__inner,
+.md-content__inner,
+.md-typeset {
+  margin: 0;
+  padding-top: 0;
+}
+
+.md-content__inner::before {
+  display: none;
+}
+
+@media screen and (min-width: 76.25em) {
+  [dir="ltr"] .md-sidebar--primary:not([hidden]) ~ .md-content > .md-content__inner {
+    margin-left: 0;
+  }
+}
+
+.md-typeset > h1:first-child,
+.md-typeset .tng-site-header + h1 {
+  display: none;
+}
+
+.tng-site-header {
+  display: flex;
+  min-height: 110px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-left: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1rem;
+  background:
+    linear-gradient(135deg, rgba(242, 207, 34, 0.16), rgba(16, 185, 159, 0.11), rgba(24, 174, 226, 0.09)),
+    white;
+  box-shadow: 0 10px 28px rgba(23, 20, 42, 0.06);
+}
+
+.tng-site-header__brand {
+  display: block;
+  width: fit-content;
+  margin: 0;
+  color: var(--tng-ink);
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+}
+
+.tng-site-header__brand:hover {
+  color: var(--tng-teal-dark);
+}
+
 .md-typeset h1,
 .md-typeset h2 {
   color: var(--tng-ink);
@@ -124,9 +199,14 @@
   padding-bottom: 2rem;
 }
 
+.catalog-app {
+  width: min(100% - 1.5rem, 1480px);
+  margin: 0 auto;
+}
+
 .catalog-toolbar {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 1rem;
   align-items: end;
   margin: 1.5rem 0;
@@ -170,7 +250,7 @@
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   gap: 1rem;
 }
 
@@ -718,6 +798,8 @@
 .activity-page {
   display: grid;
   gap: 1rem;
+  width: min(100% - 2rem, 980px);
+  margin: 0 auto;
   max-width: 980px;
 }
 
@@ -726,7 +808,7 @@
   border: 1px solid var(--tng-line);
   border-radius: 6px;
   padding: 0.55rem 0.75rem;
-  background: var(--tng-surface);
+  background: white;
   color: var(--tng-teal-dark);
   font-weight: 800;
 }

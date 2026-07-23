@@ -170,11 +170,15 @@
   }
 
   function activityTypeKeys(item) {
-    return typeKeysFromValue(firstValue(item, ["type", "resource_type", "activity_type", "category"]));
+    const mappedType = [item.typeValue, item.typeLabel].flatMap(typeKeysFromValue);
+    const rawType = typeKeysFromValue(firstValue(item, ["type", "resource_type", "activity_type", "category"]));
+    return [...mappedType, ...rawType].filter(Boolean);
   }
 
   function activitySubjectKeys(item) {
-    const subjects = firstValue(item, ["related_subjects", "subjects", "themes", "topics", "tags", "keywords"]);
+    const subjects = item.themes?.length
+      ? item.themes
+      : firstValue(item, ["related_subjects", "subjects", "themes", "topics", "tags", "keywords"]);
     return labelListFromValue(subjects).map(normalize).filter(Boolean);
   }
 
@@ -976,7 +980,7 @@
         ${isWorkshop ? illustrationsSection : ""}
         <h3>${escapeHtml(title)}</h3>
         ${longDescription ? `<section><div class="activity-detail__markdown">${renderMarkdown(longDescription)}</div></section>` : ""}
-        ${technicalInfo ? `<section><h4>Modalité pratique</h4>${technicalInfo}</section>` : ""}
+        ${technicalInfo ? `<section><h4>Modalités pratiques</h4>${technicalInfo}</section>` : ""}
         ${isWorkshop || isConference ? "" : illustrationsSection}
         ${resources ? `<section><h4>Ressources complémentaires</h4><div class="activity-detail__resources">${resources}</div></section>` : ""}
         ${combinedActivities ? `<section><h4>Activités liées</h4>${combinedActivities}</section>` : ""}
@@ -1149,7 +1153,7 @@
         levelSelect.value,
       ];
 
-      if (search.value.trim()) queryArgs.push(`search=${encodeURIComponent(search.value.trim())}`);
+      if (search?.value.trim()) queryArgs.push(`search=${encodeURIComponent(search.value.trim())}`);
       return queryArgs;
     }
 
@@ -1299,7 +1303,7 @@
       }
     }
 
-    search.addEventListener("input", () => {
+    search?.addEventListener("input", () => {
       window.clearTimeout(searchTimeout);
       searchTimeout = window.setTimeout(loadActivities, 250);
     });

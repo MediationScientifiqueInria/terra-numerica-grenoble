@@ -75,7 +75,7 @@ Filtres visibles :
 | --- | --- | --- |
 | Recherche | champ texte | Envoie `search=<texte>` |
 | Type | `/enum/types` | Envoie le `query_arg` fourni par l’API |
-| Matière | `/enum/subjects` | Envoie le `query_arg` fourni par l’API |
+| Disciplines abordées | `/enum/subjects` | Envoie le `query_arg` fourni par l’API |
 | Niveau | `/enum/levels` | Envoie le `query_arg` fourni par l’API |
 
 Fallback local du filtre `Type` si l’énumération est indisponible :

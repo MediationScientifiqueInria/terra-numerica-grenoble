@@ -31,7 +31,7 @@ hide:
     </div>
 
     <div class="catalog-filter">
-      <label for="catalog-subject">Matière</label>
+      <label for="catalog-subject">Disciplines abordées</label>
       <select id="catalog-subject" data-catalog-subject>
         <option value="">Toutes</option>
       </select>

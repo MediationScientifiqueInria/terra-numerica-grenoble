@@ -206,10 +206,11 @@
 
 .catalog-toolbar {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: minmax(240px, 1.25fr) repeat(3, minmax(150px, 0.75fr));
   gap: 1rem;
   align-items: end;
-  margin: 1.5rem 0;
+  max-width: calc(3 * 330px + 2rem);
+  margin: 1.5rem auto;
   padding: 1rem;
   border: 1px solid var(--tng-line);
   border-radius: 8px;
@@ -217,7 +218,7 @@
 }
 
 .catalog-search {
-  grid-column: span 2;
+  grid-column: auto;
 }
 
 .catalog-search label,
@@ -250,12 +251,16 @@
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
   gap: 1rem;
+  max-width: calc(3 * 330px + 2rem);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .catalog-state {
-  margin: 1rem 0;
+  max-width: calc(3 * 330px + 2rem);
+  margin: 1rem auto;
   padding: 1rem;
   border: 1px solid var(--tng-line);
   border-radius: 8px;
@@ -1127,9 +1132,23 @@
   background: var(--tng-teal);
 }
 
+@media (max-width: 1080px) {
+  .catalog-toolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 760px) {
   .tng-hero,
   .catalog-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-grid {
     grid-template-columns: 1fr;
   }
 

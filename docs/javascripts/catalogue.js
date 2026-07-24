@@ -883,12 +883,28 @@
     `;
   }
 
+  function cardLevelGroups(levels) {
+    const groups = [
+      { label: "Primaire", keys: ["cp", "ce1", "ce2", "cm1", "cm2"] },
+      { label: "Collège", keys: ["6e", "5e", "4e", "3e", "six", "cinq", "quat", "trois"] },
+      { label: "Lycée", keys: ["seconde", "premiere", "première", "terminale", "sec", "prem", "term"] },
+      { label: "Supérieur", keys: ["ens superieur", "ens supérieur", "superieur", "supérieur", "sup"] },
+    ];
+    const normalizedLevels = levels.map(normalize).filter(Boolean);
+    if (normalizedLevels.some((level) => ["any", "tout niveau", "tous niveaux"].includes(level))) {
+      return ["Tous niveaux"];
+    }
+    return groups
+      .filter((group) => group.keys.some((key) => normalizedLevels.includes(normalize(key))))
+      .map((group) => group.label);
+  }
+
   function renderActivity(activity, eventsBaseUrl, eventsPublicBaseUrl, eventsBySlug, activityDetailUrl, apiBaseUrl) {
     const article = document.createElement("article");
     const typeClass = slugify(activity.typeValue || activity.typeLabel || "activity");
     article.className = `resource-card resource-card--${typeClass}`;
     const imageUrl = firstIllustrationUrl(activity, apiBaseUrl);
-    const levels = renderCardChipGroup("Niveaux", activity.levels, 7);
+    const levels = renderCardChipGroup("Niveaux", cardLevelGroups(activity.levels), 7);
     const disciplines = renderCardChipGroup("Disciplines", activity.themes, 4);
     const cardTitle = activity.title || "Activité sans titre";
     const displayedCardTitle = truncateText(cardTitle, 100);
